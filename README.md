@@ -27,6 +27,8 @@ eds213-discussion-project/
 |
 │── database-query.sql
 |
+│── data-viz.ipynb
+|
 │── gitignore
 |    ├── data/
 |       ├── asthma_2020.csv
@@ -38,7 +40,8 @@ eds213-discussion-project/
 ```
 ## Notebook and Scripts
 - The "data-cleaning.ipynb" python notebook details all the data cleaning and download, prior to ingesting into a database using DuckDB.
-- The "database-query.sql" file details ingesting into a database using DuckDB and the query needed to answer our question. 
+- The "database-query.sql" file details ingesting into a database using DuckDB and the query needed to answer our question.
+- The "data-viz.ipynb" file contains all the code necessary to produce a data visualization, as a result from the query. The previous two files must be ran before running this one. 
 
 ## DuckDB Tables Generated
 -asthma1: Cleaned table containing county-level asthma rates and confidence intervals for 2020.
