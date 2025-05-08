@@ -21,16 +21,26 @@ source: (One Earth, Cell Press)[https://www.cell.com/action/showPdf?pii=S2590-33
 - Air Quality Dataset (PM2.5): Includes daily mean PM2.5 concentrations and AQI values by monitoring site. Can be found at the United States [Environmental Protection Agency](https://www.epa.gov/outdoor-air-quality-data/download-daily-data) website.
 
 ## Repository Structure
-.
-├── discussion/
-│   └── eds213-discussion-project/
-│       ├── data/
-│       │   ├── cleaned_asthma.csv
-│       │   └── cleaned_aqi_pm25.csv
-│       └── db/
-│           └── discussion.duckdb
-├── analysis.sql
+```
+eds213-discussion-project/
+│── data-cleaning.ipynb
+|
+│── database-query.sql
+|
+│── gitignore
+|    ├── data/
+|       ├── asthma_2020.csv
+|       ├──aqi_pm25_data.csv
+│       ├── cleaned_asthma.csv
+│       └── cleaned_aqi_pm25.csv
+|
 └── README.md
+```
+## Notebook and Scripts
+- The "data-cleaning.ipynb" python notebook details all the data cleaning and download, prior to ingesting into a database using DuckDB.
+- The "database-query.sql" file details ingesting into a database using DuckDB and the query needed to answer our question. 
 
-
+## DuckDB Tables Generated
+-asthma1: Cleaned table containing county-level asthma rates and confidence intervals for 2020.
+- aqi_pm25: Cleaned table containing daily PM2.5 air quality data for 2020.
 
