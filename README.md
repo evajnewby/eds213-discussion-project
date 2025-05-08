@@ -8,7 +8,7 @@ Date: Last updated by author in May 2025
 This project explores the relationship between air quality (specifically PM2.5 concentration) and asthma rates across U.S. counties in the year 2020. DuckDB is used as an in-process SQL database engine to ingest, clean, and analyze two real-world datasets: one on daily PM2.5 air quality metrics, and another on annual asthma prevalence in the United States.
 
 ![image](https://github.com/user-attachments/assets/7a583d86-c965-477d-99f7-b6970cc4a24f)
-source: (One Earth, Cell Press)[https://www.cell.com/action/showPdf?pii=S2590-3322%2824%2900487-1]
+source: [One Earth, Cell Press](https://www.cell.com/action/showPdf?pii=S2590-3322%2824%2900487-1)
 
 ## Objectives
 - Clean and ingest environmental and health-related datasets into DuckDB
@@ -43,4 +43,7 @@ eds213-discussion-project/
 ## DuckDB Tables Generated
 -asthma1: Cleaned table containing county-level asthma rates and confidence intervals for 2020.
 - aqi_pm25: Cleaned table containing daily PM2.5 air quality data for 2020.
+
+## Acknowledgements
+I'd like to acknowledge [Annie Adams](https://github.com/annieradams) for her assistance in this project. 
 
