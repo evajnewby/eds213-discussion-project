@@ -44,3 +44,6 @@ eds213-discussion-project/
 -asthma1: Cleaned table containing county-level asthma rates and confidence intervals for 2020.
 - aqi_pm25: Cleaned table containing daily PM2.5 air quality data for 2020.
 
+## Acknowledgements
+I'd like to acknowledge [Annie Adams](https://github.com/annieradams) for her assistance in this project. 
+
