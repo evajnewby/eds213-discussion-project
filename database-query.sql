@@ -65,19 +65,22 @@ SHOW TABLES;
 -- DROP TABLE IF EXISTS asthma;
 
 -- My Question: Which counties had the highest average PM2.5 concentration in 2020 (data is already filtered for 2020), and what were their corresponding asthma rates?
-SELECT 
-    aqi.countyfips,
-    aqi.county,
-    aqi.state,
-    ROUND(AVG(aqi.daily_mean_pm25_concentration), 2) AS avg_pm25,
-    ast.value AS asthma_rate
-FROM aqi_pm25 AS aqi
-LEFT JOIN asthma1 AS ast
-    ON aqi.countyfips = ast.countyfips
-    AND aqi.state = ast.state
-    AND ast.year = 2020
-WHERE aqi.daily_mean_pm25_concentration IS NOT NULL
-GROUP BY aqi.countyfips, aqi.county, aqi.state, ast.value
-ORDER BY avg_pm25 DESC
-LIMIT 10;
+-- Export to .csv
+COPY (
+    SELECT 
+        aqi.countyfips,
+        aqi.county,
+        aqi.state,
+        ROUND(AVG(aqi.daily_mean_pm25_concentration), 2) AS avg_pm25,
+        ast.value AS asthma_rate
+    FROM aqi_pm25 AS aqi
+    LEFT JOIN asthma1 AS ast
+        ON aqi.countyfips = ast.countyfips
+        AND aqi.state = ast.state
+        AND ast.year = 2020
+    WHERE aqi.daily_mean_pm25_concentration IS NOT NULL
+    GROUP BY aqi.countyfips, aqi.county, aqi.state, ast.value
+    ORDER BY avg_pm25 DESC
+    LIMIT 10
+) TO 'discussion/eds213-discussion-project/data/top10_pm25_asthma.csv' (HEADER, DELIMITER ',');
 
