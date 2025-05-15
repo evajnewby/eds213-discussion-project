@@ -1,33 +1,32 @@
 -- create asthma table in DuckDB
-CREATE TABLE asthma (
-    statefips INTEGER,
-    state TEXT,
-    countyfips INTEGER,
-    county TEXT,
-    year INTEGER,
-    value FLOAT,
-    data_comment TEXT,
-    confidence_interval TEXT,
-    confidence_interval_low FLOAT,
-    confidence_interval_high FLOAT);
+-- CREATE TABLE asthma (
+ --   statefips INTEGER,
+ --   state TEXT,
+ --   countyfips INTEGER,
+ --   county TEXT,
+ --   year INTEGER,
+ --   value FLOAT,
+ --   data_comment TEXT,
+ --   confidence_interval TEXT,
+ --   confidence_interval_low FLOAT,
+ --   confidence_interval_high FLOAT);
 
-    COPY asthma FROM 'discussion/eds213-discussion-project/data/cleaned_asthma.csv' (HEADER TRUE, AUTO_DETECT TRUE);
+   -- COPY asthma FROM 'discussion/eds213-discussion-project/data/cleaned_asthma.csv' (HEADER TRUE, AUTO_DETECT TRUE);
+
+-- Check table
+-- Select * FROM asthma;
+-- why do I have no rows? 
+-- Let's try another way. 
+
+CREATE TABLE asthma AS
+SELECT * FROM read_csv_auto('discussion/eds213-discussion-project/data/cleaned_asthma.csv', HEADER=TRUE);
 
 -- Check table
 Select * FROM asthma;
 
--- why do I have no rows? ugh
--- other ways?
-
-CREATE TABLE asthma1 AS
-SELECT * FROM read_csv_auto('discussion/eds213-discussion-project/data/cleaned_asthma.csv', HEADER=TRUE);
-
--- Check table
-Select * FROM asthma1;
-
 -- that's working, but I'm not sure why there's a period column? 
 -- drop the period column in duckdb
-ALTER TABLE asthma1 DROP COLUMN ".";
+ALTER TABLE asthma DROP COLUMN ".";
 
 -- Create AQI table in DuckDB
 CREATE TABLE aqi_pm25 (
@@ -74,7 +73,7 @@ COPY (
         ROUND(AVG(aqi.daily_mean_pm25_concentration), 2) AS avg_pm25,
         ast.value AS asthma_rate
     FROM aqi_pm25 AS aqi
-    LEFT JOIN asthma1 AS ast
+    LEFT JOIN asthma AS ast
         ON aqi.countyfips = ast.countyfips
         AND aqi.state = ast.state
         AND ast.year = 2020
