@@ -36,6 +36,14 @@ eds213-discussion-project/
 │       ├── cleaned_asthma.csv
 │       └── cleaned_aqi_pm25.csv
 |
+|── dependencies.txt
+|
+│── pm25_asthma_chart.html
+|
+│── pm25_asthma_plot.png
+|
+│── Discussion Schema.png
+|
 └── README.md
 ```
 ## Notebook and Scripts
@@ -46,6 +54,10 @@ eds213-discussion-project/
 ## DuckDB Tables Generated
 - asthma: Cleaned table containing county-level asthma rates and confidence intervals for 2020.
 - aqi_pm25: Cleaned table containing daily PM2.5 air quality data for 2020.
+- top10_pm25_asthma : The top 10 counties in California with the highest average PM2.5 concentration and their corresponding asthma rates for 2020.
+
+## Dependencies
+Dependencies and environmental requirements are listed in the `dependencies.txt` file. 
 
 ## Acknowledgements
 I'd like to acknowledge [Annie Adams](https://github.com/annieradams) for her assistance in this project. 
