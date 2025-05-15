@@ -44,7 +44,7 @@ eds213-discussion-project/
 - The "data-viz.ipynb" file contains all the code necessary to produce a data visualization, as a result from the query. The previous two files must be ran before running this one. 
 
 ## DuckDB Tables Generated
--asthma1: Cleaned table containing county-level asthma rates and confidence intervals for 2020.
+- asthma: Cleaned table containing county-level asthma rates and confidence intervals for 2020.
 - aqi_pm25: Cleaned table containing daily PM2.5 air quality data for 2020.
 
 ## Acknowledgements
